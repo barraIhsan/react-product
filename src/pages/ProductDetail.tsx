@@ -10,7 +10,7 @@ export default function ProductDetail({
   setCartCount: React.Dispatch<React.SetStateAction<number>>;
 }) {
   const [selected, setSelected] = useState<number>(0);
-  const [qty, setQty] = useState<number>(0);
+  const [qty, setQty] = useState<number>(1);
   return (
     <main className="flex justify-center items-center gap-30 container mx-auto min-h-screen">
       <div className="space-y-5 size-fit">
@@ -48,7 +48,7 @@ export default function ProductDetail({
           <div className="flex gap-2.5">
             <button
               className="p-2.5 rounded-lg bg-gray-100 size-12 flex justify-center items-center cursor-pointer"
-              onClick={() => qty > 0 && setQty(qty - 1)}
+              onClick={() => qty > 1 && setQty(qty - 1)}
             >
               <Minus className="text-amber-600 stroke-5 size-6" />
             </button>
@@ -66,7 +66,7 @@ export default function ProductDetail({
             className="bg-amber-600 text-white font-medium px-4 py-2.5 rounded-lg cursor-pointer"
             onClick={() => {
               setCartCount(cartCount + qty);
-              setQty(0);
+              setQty(1);
             }}
           >
             Add to cart
